@@ -1,4 +1,4 @@
-package pl.sda.j133.streams.podstawy;
+package pl.sda.j133.streams.podstawy.zadanie1;
 
 import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;

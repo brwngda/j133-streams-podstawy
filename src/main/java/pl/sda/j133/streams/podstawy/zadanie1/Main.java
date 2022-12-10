@@ -1,9 +1,7 @@
-package pl.sda.j133.streams.podstawy;
+package pl.sda.j133.streams.podstawy.zadanie1;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {

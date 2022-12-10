@@ -1,10 +1,11 @@
 package pl.sda.j133.streams.podstawy.zadanie2;
 
-import pl.sda.j133.streams.podstawy.Person;
+import pl.sda.j133.streams.podstawy.zadanie1.Person;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -50,7 +51,7 @@ public class Main {
         System.out.println(programmers);
 
 //        a. uzyskaj listę programistów, którzy są mężczyznami
-        List <Programmer> wynikA = programmers.stream()
+        List<Programmer> wynikA = programmers.stream()
                 .filter(programmer -> !programmer.getPerson().isMale())
                 .collect(Collectors.toList());
         System.out.println(wynikA);
@@ -62,17 +63,17 @@ public class Main {
         System.out.println(wynikB);
 
 //        c. uzyskaj listę programistów, którzy znają więcej, niż jeden język programowania
-        List <Programmer> wynikC = programmers.stream()
+        List<Programmer> wynikC = programmers.stream()
                 .filter(programmer -> programmer.getLanguages().size() > 1)
                 .collect(Collectors.toList());
         System.out.println(wynikC);
 
 //        d. uzyskaj listę programistek, które piszą w Javie i Cpp
-        List <Programmer> wynikD = programmers.stream()
-                .filter(programmer -> programmer.getLanguages().containsAll(List.of("Java", "CPP")))
+        List<Programmer> wynikD = programmers.stream()
+                .filter(programmer -> !programmer.getPerson().isMale())
+                .filter(programmer -> programmer.getLanguages().containsAll(List.of("Java", "Cpp")))
                 .collect(Collectors.toList());
         System.out.println(wynikD);
-
 
 //        e. uzyskaj listę męskich imion
         List<String> wynikE = programmers.stream()
@@ -80,6 +81,17 @@ public class Main {
                 .map(programmer -> programmer.getPerson().getFirstName())
                 .collect(Collectors.toList());
         System.out.println(wynikE);
+
+        //        f. uzyskaj set wszystkich języków opanowanych przez programistów
+//        Set<> wynikF = programmers.stream()
+//                .map(programmer -> programmer.getLanguages())
+//                .collect(Collectors.toSet());
+
+//        g. uzyskaj listę nazwisk programistów, którzy znają więcej, niż dwa języki
+        List<String> wynikG = programmers.stream()
+                .filter(programmer -> programmer.getLanguages().size() > 2)
+                .map(programmer -> programmer.getPerson().getLastName())
+                .collect(Collectors.toList());
 
     }
 }
